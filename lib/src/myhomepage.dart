@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:test_cicd/src/constants.dart';
 // import 'package:flutter/services.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -50,8 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
             now.difference(currentBackPressTime!) >
                 const Duration(seconds: 2)) {
           currentBackPressTime = now;
-          // Fluttertoast.showToast(msg: exit_warning);
-          debugPrint('double back');
+          Fluttertoast.showToast(msg: 'press back again to exit');
           return Future.value(false);
         }
         return Future.value(true);
@@ -59,8 +60,8 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         appBar: AppBar(
           systemOverlayStyle: const SystemUiOverlayStyle(
-            systemNavigationBarColor: Colors.blue, // Navigation bar
-            statusBarColor: Colors.purpleAccent, // Status bar
+            systemNavigationBarColor: Colors.blue,
+            statusBarColor: Colors.purpleAccent,
           ),
           title: const Text('Home'),
         ),
@@ -72,12 +73,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 _showMaterialDialog();
               },
             ),
-            const ElevatedButton(
-              child: Text('next navigation'),
-              // onPressed: () {
-              //   Navigator.pushNamed(context, RoutesName.newPage);
-              // },
-              onPressed: null,
+            ElevatedButton(
+              child: const Text('next navigation'),
+              onPressed: () {
+                Navigator.pushNamed(context, RoutesName.newPage);
+              },
             ),
           ],
         ),

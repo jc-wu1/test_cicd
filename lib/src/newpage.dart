@@ -18,8 +18,8 @@ class _NewPageState extends State<NewPage> {
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
-          systemNavigationBarColor: Colors.blue, // Navigation bar
-          statusBarColor: Colors.pinkAccent, // Status bar
+          systemNavigationBarColor: Colors.blue,
+          statusBarColor: Colors.pinkAccent,
         ),
         title: const Text('New Page'),
       ),

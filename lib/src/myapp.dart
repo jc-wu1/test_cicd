@@ -6,6 +6,7 @@ import 'package:test_cicd/src/account.dart';
 import 'package:test_cicd/src/cart.dart';
 import 'package:test_cicd/src/myhomepage.dart';
 import 'package:test_cicd/src/profile.dart';
+import 'package:test_cicd/src/search.dart';
 import 'bloc/counter/counter_bloc.dart';
 import 'cubit/theme/theme_cubit.dart';
 import 'constants.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
             theme: theme,
             home: BlocProvider(
               create: (context) => CounterBloc(),
-              child: const CounterPage(),
+              child: const MenuPage(),
             ),
             initialRoute: RoutesName.home,
             onGenerateRoute: AppRouter.generateRoute,
@@ -36,14 +37,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class CounterPage extends StatefulWidget {
-  const CounterPage({Key? key}) : super(key: key);
+class MenuPage extends StatefulWidget {
+  const MenuPage({Key? key}) : super(key: key);
 
   @override
-  State<CounterPage> createState() => _CounterPageState();
+  State<MenuPage> createState() => _MenuPageState();
 }
 
-class _CounterPageState extends State<CounterPage> {
+class _MenuPageState extends State<MenuPage> {
   final ListQueue<int> _navigationQueue = ListQueue();
   int index = 0;
 
@@ -60,42 +61,7 @@ class _CounterPageState extends State<CounterPage> {
         return false;
       },
       child: Scaffold(
-        // appBar: AppBar(title: const Text('Counter')),
-        // body: Center(
-        //   child: BlocBuilder<CounterBloc, int>(
-        //     builder: (context, count) {
-        //       return Text('$count', style: textTheme.headline1);
-        //     },
-        //   ),
-        // ),
         body: (getBody(index)),
-        // floatingActionButton: Column(
-        //   crossAxisAlignment: CrossAxisAlignment.end,
-        //   mainAxisAlignment: MainAxisAlignment.end,
-        //   children: <Widget>[
-        //     Padding(
-        //       padding: const EdgeInsets.symmetric(vertical: 5.0),
-        //       child: FloatingActionButton(
-        //         child: const Icon(Icons.add),
-        //         onPressed: () => context.read<CounterBloc>().add(Increment()),
-        //       ),
-        //     ),
-        //     Padding(
-        //       padding: const EdgeInsets.symmetric(vertical: 5.0),
-        //       child: FloatingActionButton(
-        //         child: const Icon(Icons.remove),
-        //         onPressed: () => context.read<CounterBloc>().add(Decrement()),
-        //       ),
-        //     ),
-        //     Padding(
-        //       padding: const EdgeInsets.symmetric(vertical: 5.0),
-        //       child: FloatingActionButton(
-        //         child: const Icon(Icons.brightness_6),
-        //         onPressed: () => context.read<ThemeCubit>().toggleTheme(),
-        //       ),
-        //     ),
-        //   ],
-        // ),
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.white,
           selectedItemColor: const Color(0xFFf5851f),
@@ -119,11 +85,14 @@ class _CounterPageState extends State<CounterPage> {
               icon: Icon(Icons.do_disturb),
               label: 'Cart',
             ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Search',
+            ),
           ],
           onTap: (value) {
             _navigationQueue.addLast(index);
             setState(() => index = value);
-            // print(value);
           },
         ),
       ),
@@ -140,6 +109,8 @@ class _CounterPageState extends State<CounterPage> {
         return const Cart();
       case 3:
         return const Profile();
+      case 4:
+        return const SearchPage();
       default:
         return const MyHomePage();
     }
