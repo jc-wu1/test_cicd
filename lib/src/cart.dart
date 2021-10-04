@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 // import 'package:flutter/services.dart';
 import 'package:test_cicd/src/bloc/counter/counter_bloc.dart';
+import 'package:test_cicd/src/config/environment.dart';
 import 'package:test_cicd/src/cubit/theme/theme_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,18 +16,25 @@ class Cart extends StatefulWidget {
 class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
+    final String apiHost = Environment().config!.apiHost;
+    final header = Environment().config!.apiHeaders;
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
           systemNavigationBarColor: Colors.blue, // Navigation bar
           statusBarColor: Colors.yellowAccent, // Status bar
         ),
-        title: const Text('Cart'),
+        title: Text('Cart $apiHost'),
       ),
       body: Center(
         child: BlocBuilder<CounterBloc, int>(
           builder: (context, count) {
-            return Text('$count', style: Theme.of(context).textTheme.headline1);
+            return Column(
+              children: [
+                Text('$count', style: Theme.of(context).textTheme.headline1),
+                Text(header.toString()),
+              ],
+            );
           },
         ),
       ),
