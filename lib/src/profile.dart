@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 // import 'package:flutter/services.dart';
 
 class Profile extends StatefulWidget {
@@ -43,10 +42,10 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          systemNavigationBarColor: Colors.blue, // Navigation bar
-          statusBarColor: Colors.orangeAccent, // Status bar
-        ),
+        // systemOverlayStyle: const SystemUiOverlayStyle(
+        //   systemNavigationBarColor: Colors.blue, // Navigation bar
+        //   statusBarColor: Colors.orangeAccent, // Status bar
+        // ),
         title: const Text('Profile'),
       ),
       body: ElevatedButton(

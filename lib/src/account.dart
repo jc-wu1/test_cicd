@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 // import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_cicd/src/bloc/account/account_bloc.dart';
@@ -17,10 +16,10 @@ class _AccountState extends State<Account> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          systemNavigationBarColor: Colors.blue,
-          statusBarColor: Colors.greenAccent,
-        ),
+        // systemOverlayStyle: const SystemUiOverlayStyle(
+        //   systemNavigationBarColor: Colors.blue,
+        //   statusBarColor: Colors.greenAccent,
+        // ),
         title: const Text('Account'),
       ),
       body: BlocProvider(

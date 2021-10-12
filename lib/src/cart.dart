@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 // import 'package:flutter/services.dart';
 import 'package:test_cicd/src/bloc/counter/counter_bloc.dart';
 import 'package:test_cicd/src/config/environment.dart';
@@ -20,10 +19,6 @@ class _CartState extends State<Cart> {
     final header = Environment().config!.apiHeaders;
     return Scaffold(
       appBar: AppBar(
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          systemNavigationBarColor: Colors.blue, // Navigation bar
-          statusBarColor: Colors.yellowAccent, // Status bar
-        ),
         title: Text('Cart $apiHost'),
       ),
       body: Center(

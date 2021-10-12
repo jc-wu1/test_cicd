@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:test_cicd/src/constants.dart';
 // import 'package:flutter/services.dart';
@@ -59,10 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          systemOverlayStyle: const SystemUiOverlayStyle(
-            systemNavigationBarColor: Colors.blue,
-            statusBarColor: Colors.purpleAccent,
-          ),
+          // systemOverlayStyle: const SystemUiOverlayStyle(
+          //   systemNavigationBarColor: Colors.blue,
+          //   statusBarColor: Colors.purpleAccent,
+          // ),
           title: const Text('Home'),
         ),
         body: Column(
