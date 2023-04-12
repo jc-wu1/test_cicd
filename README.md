@@ -1,6 +1,6 @@
 # test_cicd
 
-A new Flutter project.
+A new Flutter project. Test branch protection
 
 ## Getting Started
 
